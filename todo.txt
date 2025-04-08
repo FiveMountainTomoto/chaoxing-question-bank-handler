@@ -1,0 +1,4 @@
+(A) 实现各类题目类型：DataStruct\Question.cs 第22行 pri:A
+(A) 封装 MySQL 操作：MysqlHelper.cs
+(B) 完成前端页面：MainWindow.xaml
+(A) 处理HTML文件，提取题目信息：HtmlQuestionReader.cs
