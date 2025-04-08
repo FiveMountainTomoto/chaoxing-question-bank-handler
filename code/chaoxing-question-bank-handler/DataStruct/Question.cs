@@ -19,28 +19,73 @@
         }
     }
 
-    // TODO: 实现各类题目类型
     /// <summary>
     /// 单选题
     /// </summary>
-    public class SingleAnsQuestion
+    public class SingleAnsQuestion : Question
     {
+        /// <summary>
+        /// 选项
+        /// </summary>
+        public string[]? Options { get; set; }
 
+        /// <summary>
+        /// 正确答案索引
+        /// </summary>
+        public int AnsIndex { get; set; }
+
+        /// <summary>
+        /// 正确答案
+        /// </summary>
+        public string? Answear
+        {
+            get
+            {
+                if (Options is not null) return Options[AnsIndex];
+                else return null;
+            }
+        }
     }
 
     /// <summary>
     /// 多选题
     /// </summary>
-    public class MultiAnsQustion
+    public class MultiAnsQustion : Question
     {
+        /// <summary>
+        /// 选项
+        /// </summary>
+        public string[]? Options { get; set; }
 
+        /// <summary>
+        /// 正确答案索引
+        /// </summary>
+        public int[]? AnsIndex { get; set; }
+
+        /// <summary>
+        /// 正确答案
+        /// </summary>
+        public string[]? Answear
+        {
+            get
+            {
+                if (Options is not null && AnsIndex is not null)
+                {
+                    return AnsIndex.Select(i => Options[i]).ToArray();
+                }
+                else return null;
+            }
+        }
     }
 
     /// <summary>
     /// 判断题
     /// </summary>
-    public class TrueFalseQuestion
+    public class TrueFalseQuestion : Question
     {
-
+        /// <summary>
+        /// 正确答案
+        /// </summary>
+        public bool Answer { get; set; }
     }
 }
